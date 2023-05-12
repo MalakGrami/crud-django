@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Articles</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>{% block content %}
+  <div class="form-container">
+    <h2>Add Article</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form.title.label_tag }}
+        {{ form.title }}
+      </div>
+      <div class="form-group">
+        {{ form.content.label_tag }}
+        {{ form.content }}
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+{% endblock %}
+</body>
+</html>
